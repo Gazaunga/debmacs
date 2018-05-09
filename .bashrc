@@ -21,6 +21,7 @@ export CXX=/usr/bin/clang++
 #export GEM_PATH=$HOME/.gem
 export DUNST_FONT='OfficeCodePro 7'
 export DUNST_SIZE='250x20-30+30'
+export WINEDEBUG=-all
 
 PATH=$HOME/bin:/usr/local/bin:$PATH
 if [ -d $HOME/.gem/ruby/2.*.*/bin ] ; then
