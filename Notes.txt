@@ -1,0 +1,5 @@
+cd ~/etc/
+cd ..
+sudo cp -R /init.d/emacs /etc/
+cd ~/usr/bin/
+sudo cp -R /usr/bin/emacs /usr/bin/
