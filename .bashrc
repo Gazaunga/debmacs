@@ -1,3 +1,7 @@
+if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+
 export ALTERNATE_EDITOR=""
 export EDITOR="emacsclient -t"                  # $EDITOR should open in terminal
 export VISUAL="emacsclient -c -a emacs"         # $VISUAL opens in GUI with non-daemon as alternate
@@ -6,21 +10,22 @@ alias emax="emacsclient -t"                      # used to be "emacs -nw"
 alias semac="sudo emacsclient -t"                # used to be "sudo emacs -nw"
 alias emacsc="emacsclient -c -a emacs"           # new - opens the GUI with alternate non-daemon
 
-if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
-  exec startx
-fi
-
-export PATH="${PATH}:$HOME/bin"
+#export PATH="${PATH}:$HOME/bin"
 export LANG=C.UTF-8
 export PAGER=less
 export MANWIDTH=80
 export LESS='-F -g -i -M -R -S -w -X -z-4'
 export CC=/usr/bin/clang
 export CXX=/usr/bin/clang++
-export GEM_HOME=$(ruby -e "print Gem.user_dir")
-export GEM_PATH=$HOME/.gem
+#export GEM_HOME=$(ruby -e "print Gem.user_dir")
+#export GEM_PATH=$HOME/.gem
 export DUNST_FONT='OfficeCodePro 7'
 export DUNST_SIZE='250x20-30+30'
+
+PATH=$HOME/bin:/usr/local/bin:$PATH
+if [ -d $HOME/.gem/ruby/2.*.*/bin ] ; then
+  PATH=$HOME/.gem/ruby/2.*.*/bin:$PATH
+fi
 
 shopt -s histappend
 PROMPT_COMMAND='history -a'
